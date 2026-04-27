@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VideoFlow - Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414755",
+                        "primary-container": "#0070eb",
+                        "surface-tint": "#005bc1",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#351000",
+                        "outline-variant": "#c1c6d7",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-highest": "#e2e2e4",
+                        "surface-bright": "#f9f9fb",
+                        "on-surface": "#1a1c1d",
+                        "surface-container-low": "#f3f3f5",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e4",
+                        "on-secondary-container": "#626267",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9fb",
+                        "on-background": "#1a1c1d",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "inverse-surface": "#2f3132",
+                        "inverse-on-surface": "#f0f0f2",
+                        "on-primary-fixed": "#001a41",
+                        "inverse-primary": "#adc6ff",
+                        "outline": "#717786",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "tertiary-container": "#c64f00",
+                        "primary": "#0058bc",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary": "#9e3d00",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadc",
+                        "secondary-container": "#e0dfe4",
+                        "secondary": "#5d5e63",
+                        "surface-container": "#eeeef0",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary-fixed": "#e3e2e7",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "secondary-fixed-dim": "#c6c6cb",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "surface": "#f9f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .ease-out-expo { transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+        .scale-98-active:active { transform: scale(0.98); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased overflow-x-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex flex-col p-4 space-y-2 font-sans antialiased text-sm tracking-tight z-50">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">VideoFlow</h1>
+<p class="text-xs text-on-surface-variant opacity-70">The Digital Curator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 transition-all duration-250 ease-out-expo hover:bg-slate-200/40 scale-98-active" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Active Tab: Library -->
+<a class="flex items-center space-x-3 px-3 py-2 bg-slate-200/50 dark:bg-slate-800/50 text-blue-700 dark:text-blue-400 font-semibold rounded-lg transition-all duration-250 ease-out-expo hover:bg-slate-200/40 scale-98-active" href="#">
+<span class="material-symbols-outlined" data-icon="video_library" style="font-variation-settings: 'FILL' 1;">video_library</span>
+<span>Library</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 transition-all duration-250 ease-out-expo hover:bg-slate-200/40 scale-98-active" href="#">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span>Downloads</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 transition-all duration-250 ease-out-expo hover:bg-slate-200/40 scale-98-active" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex items-center justify-between px-8 z-40 tonal-shift-no-border">
+<div class="flex-1 max-w-md">
+<!-- Global search for TopNavBar, though local search is in content -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/30 transition-all duration-250 ease-out-expo outline-none" placeholder="Global search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="hover:text-blue-500 transition-colors ease-out-expo-250ms">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="hover:text-blue-500 transition-colors ease-out-expo-250ms">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-7xl mx-auto px-10 py-12">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 space-y-6 md:space-y-0">
+<div>
+<h2 class="text-[1.5rem] font-bold text-on-surface tracking-tight mb-1">Video Library</h2>
+<p class="text-on-surface-variant text-sm font-medium tracking-wide uppercase opacity-70">324 COLLECTIONS • SYNCED 2m AGO</p>
+</div>
+<!-- Content Area Filters & Search -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="relative w-64">
+<input class="w-full bg-surface-container border-none rounded-xl pl-4 pr-10 py-3 text-sm focus:ring-2 focus:ring-primary/30 transition-all duration-250 outline-none" placeholder="Search your library..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">filter_list</span>
+</div>
+<div class="flex items-center bg-surface-container p-1 rounded-xl">
+<button class="px-4 py-2 text-xs font-semibold bg-primary text-on-primary rounded-lg shadow-sm transition-all duration-250">Date</button>
+<button class="px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-250">Size</button>
+<button class="px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-250">Name</button>
+</div>
+</div>
+</div>
+<!-- Library Bento/Grid Gallery -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Video Card 1 (Large Featured-style) -->
+<div class="col-span-1 sm:col-span-2 group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Cinematic landscape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="dramatic aerial footage of a misty nordic fjord at sunrise with cold blue water and jagged mountain peaks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL_vPvj3f75SK3_pNsVWY_6BvyofVxg8daIGZmjbnGmdnl4dti8BAXJxqAkw4_prhL3L6sze0Zxq4P858TOQRsYFaUuYBZ_qqhoiSL8CsqcJX31qSArS9jUcIuR_6HJJDfQhjDIbN5fQP9owSbbLVscVnvblL8s6N4sSFQt1W06_Y89Rb1wmQsNGX5zIzTj7dbnV8A_OWDa9PoeUsuzb7jvVjNZQcg8EwGA0ZqInYqXY-1oqkgDiAPy3MtfVV3YZqJ4-vTdT8w0mI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-center text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<span class="bg-primary/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Featured</span>
+<span class="text-xs font-medium">12:45</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors duration-250">The Northern Shores: 4K Master</h3>
+<p class="text-on-surface-variant text-sm mt-1">Uploaded Oct 12, 2023 • 1.2 GB</p>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Cyberpunk city" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="futuristic neon-lit city street at night with rain reflections and glowing holographic advertisements in deep teal and pink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI_lqjcIWJlmRJdqZHm2rKST_yLGAsqSXmS9ubypvUgCDrXXgssaMfFM96rZ8Rk5k11wqd8Ki3YwxTnIYzJoDFxbtK3hCYTFZciukZfNeraET9q5YKD29auLqisxyM9_Wi0S0nhnY3qyju-19j3s6v7eVRNTew1iGuoWZjnB6SIK54dkBuxVTle8DkbmG9YqnBgcDLYQ7XPYQCwAMfE5tyZevxIk_2fT9xZsmn3G6FvSjSKncEA8xxtmypizzy3AAFSiD4iuZQSbA"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">04:20</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Neon Nights Tokyo</h3>
+<p class="text-on-surface-variant text-sm mt-1">Yesterday • 450 MB</p>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Forest canopy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="sunbeams filtering through a dense pine forest canopy with morning mist and vibrant green moss on the forest floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5E88xU25GovA-uhmEkE4hkwea3N2g_lbQ_jcMjb8PJK0A8fukzILpMaVocKEEEAVlW4Wv5OfiUQ8MzLbvq2sO_-SgRgspEY2XwNlOCF8AI4HWoWksonBJXyXX6hrMRcbXKS4OgovXT8xZLADZsKpYKEESz7VXAAHBC2hbdnrrn1ceFhsEnMGmGw_Pf_HEcQ290GyIXuPNeCgKFBXHdsZt8R9qh9FuEfObnIutEb3KmbZKN2sZOhW-7udneA5my51cJ_XGVPe4bA4"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">18:12</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Deep Woods Vol. 4</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 24, 2023 • 2.8 GB</p>
+</div>
+</div>
+<!-- Video Card 4 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Ocean waves" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="macro slow motion shot of a cresting ocean wave catching the golden sunset light with crystalline water droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMnASjOA9Bc12692HBhoxSsmF6dfTGxoWDCDnK5btVALKJBs8eyci96oZ8MpA4iETzOASa2LODHywDakotQKZULTzkijPmNRGlq7DL9CvY2tFXomIS6CefxELuNtPEMysQnkQC0VS3Pf40_IBC0TrNPPVpEhLwB5gJ4JOZyA_fwMbZUzOdZUn6Lv1RpPeiXDPefVxoCH7qb0iizlAqrTO0knX-4Y5bGi7XVh0ed2pgkJlcIv-hu8xbFj3Dhmj9sFILUUJppRGD3MA"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">02:55</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Tidal Rhythms</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 20, 2023 • 120 MB</p>
+</div>
+</div>
+<!-- Video Card 5 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Cinema interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="interior of a classic luxury cinema with red velvet seats and a warm glowing light from the projection booth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_XS4fXeyeHFSdXy7ndq1oJaBh0-mTOcafIszmDNubnzTbDk0s2xCuPWUITbvqeDpuYwJ6SfbIyakjHMz7gmmvZUENpYxZH9vma2G4-Jp93DczrVxT-KTMlvI90v7VAxZd0S4x2moxzZTQcBqPhc5WSBnSe4b4KO3CNG6ch-1RQaOdB0Q9G6jtsk9sZodGeO5Qe7J97_7OsjEP0rifU61r7q9AwYiLUyfxyhSKZLNQryQiyOlXykXgzZdoOeTkLDHgGcpG-bAqF0"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">01:45:30</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">The Collector's Cut</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 18, 2023 • 4.5 GB</p>
+</div>
+</div>
+<!-- Video Card 6 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Minimalist Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="minimalist modern architecture with sharp concrete lines and stark shadows against a clear bright blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYDpZ1zhCADa-j9Vas6pmb4AoVfXE8aV4-IEap30hzvxQm1EWfoh2mkABsnCHu2S9gNPTaTAArSH19zZVEx39yoM9va8hlgNjN_uRet8EEfizBTLIQWPiB9O_iUmddzoNyA5qqagCQhpRccBF3DCNMUwBqSYsb5-UuBIrlVv5inXTCr8hBpyZCPhHh9pBaKHBLf-zWBf-ste3mXCRqWvSecsEKWp0mIEbVvDrgxVMjO6lZvOH5Ptt-tJBTTJbSGat_mam3GCTGUM8"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">08:14</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Structural Symmetry</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 15, 2023 • 890 MB</p>
+</div>
+</div>
+<!-- Video Card 7 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Music visualizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="close up of an audio mixer in a dark studio with glowing orange and blue indicator lights and bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEuTBg8nLl9gidpPz5RxhvUWEOBKbnTDc03OPchEg1NMFXlfpg4rhIOqb0OmegtqRkB2krpqQ2cLN7BIndQ_mMmHEpDe6DLGP1F4olLVlDBPBuKPjj-fTQ_-0p4eAYjGNUViv2f7HoXPttOEyuQ8tV3H17Qw0FeXrX6kJv-GWnvs7j9xslmP4Ky3GPUPgHJiuHIcT2HKcy3WWiLLEPzMZKxYODJDvXvBAWZiAUjX1XnFI1zz2WfdEw12LGgP2vhCDUXQALxDUUPOI"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">03:45</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Synth Wave Sessions</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 14, 2023 • 310 MB</p>
+</div>
+</div>
+<!-- Video Card 8 (Wide Bento) -->
+<div class="col-span-1 sm:col-span-2 group">
+<div class="relative aspect-[21/9] rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Mountain range" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="panoramic view of snow-capped mountains under a purple and pink twilight sky with stars beginning to appear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVNy9DVoodSF7pVN5C8GH41eMjGHjmhxCFLHi133pYdXkttyB7Z5y76IHpxyXv6do2hW6gf5xr1rfHeGvJPABv9NMW_S7uzVzbCk-ly6pC-uvp-J22Rc93jauT5onyUynC5-Nkc2WVshhbAhMigfsh9b3h7Q87-FD-NoNlS2DeLT3iRpNZT0dLAdslX4I5vMoYs-XfG3gHbbqQbdyQJpiim5AK9_eQhZHNKlWGeYsezesqkLL4ON_LrdP2raL_RwSZIyZisiODaJk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="text-xs font-bold uppercase tracking-widest bg-white/20 backdrop-blur-md px-3 py-1 rounded-full mb-2 inline-block">Panoramic Series</span>
+<h4 class="text-2xl font-bold">Himalayan Zenith</h4>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">1:02:15</div>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm">Oct 10, 2023 • 5.1 GB</p>
+</div>
+</div>
+<!-- Video Card 9 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Hiking POV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="POV shot of a hiker walking along a narrow ridge line with steep green valleys on both sides under a bright blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGU04bYRj5H8vKAPrE96XoCqd2Zr9xIGD8-yb7VeBHh6HdpKxjWjcoZstqBima73EB5q2hoQLq6IbXS7uZ1g1R_HBl3_9EkA7mZwmKsXwyeF-VN6RhLVqlnkLG03Otchl5y75-TWglUwmGT2x_GFq5Mb9JfvBB7w2rZU19zQGuCdpGJGPv2GfP9bb2_FvJrm4qjWoQwHPekBLZMIR2CRPwsC8l3uAoR_oREPNKMq0lKE2TQFrkiudBpEcPeSsqNxIjQitcNq2cPbA"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">22:05</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Ridge Runner POV</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 08, 2023 • 1.4 GB</p>
+</div>
+</div>
+<!-- Video Card 10 -->
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-high shadow-sm cursor-pointer mb-4">
+<img alt="Desert dunes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out-expo" data-alt="vast golden sand dunes at sunset with sharp shadows and wind ripples on the sand surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlZaesFnz-JC1eWG_zQ2t6PNI-wxkghAGyP9uJVTiuEfCeC_UtRq4Lb9C5-7bbtmUrDm7YcGLrQw1G3ND1dKG2y_TbbGMgZX7p7rGPeBONhXeUvKEtppbcJBo_upau0f3vVWGIGteUPJEi1sWg1b5xXJx9WzzfM2X01LeAXLeqTiB9nE4f6rOufYuPADqByuU-simQSIjEzHj-jWurT-awevDniH0JQr4IMP6Bmlx1T9LMTP7lPgMYeKYIG1EnnCPndkdJOvWPyq4"/>
+<div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md font-bold">05:50</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors duration-250">Sahara Whispers</h3>
+<p class="text-on-surface-variant text-sm mt-1">Oct 05, 2023 • 600 MB</p>
+</div>
+</div>
+</div>
+<!-- Empty State / Load More simulation -->
+<div class="mt-20 text-center py-12 border-t border-outline-variant/10">
+<p class="text-on-surface-variant text-sm mb-6">Showing 32 of 324 videos</p>
+<button class="px-8 py-3 bg-surface-container-high text-on-surface font-semibold rounded-xl hover:bg-surface-container-highest transition-all duration-250 ease-out-expo scale-98-active">
+                    Load More Content
+                </button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for new downloads -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center space-x-3 bg-gradient-to-br from-primary to-primary-container text-white px-6 py-4 rounded-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-250 ease-out-expo">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+<span class="font-bold tracking-tight">New Source</span>
+</button>
+</div>
+</body></html>

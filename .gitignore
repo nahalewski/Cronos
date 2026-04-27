@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flutter/Dart
+x_video_downloader/.dart_tool/
+x_video_downloader/.packages
+x_video_downloader/.pub/
+x_video_downloader/build/
+x_video_downloader/.flutter-plugins
+x_video_downloader/.flutter-plugins-dependencies
+x_video_downloader/.metadata
+
+# Android
+x_video_downloader/android/.gradle/
+x_video_downloader/android/local.properties
+x_video_downloader/android/app/build/
+
+# iOS
+x_video_downloader/ios/Pods/
+x_video_downloader/ios/.symlinks/
+x_video_downloader/ios/Flutter/Flutter.framework
+x_video_downloader/ios/Flutter/Flutter.podspec
+x_video_downloader/ios/Runner.xcworkspace/xcuserdata/
+x_video_downloader/ios/Runner.xcodeproj/xcuserdata/
+
+# macOS
+x_video_downloader/macos/Pods/
+x_video_downloader/macos/.symlinks/
+x_video_downloader/macos/Flutter/ephemeral/
+x_video_downloader/macos/Runner.xcworkspace/xcuserdata/
+x_video_downloader/macos/Runner.xcodeproj/xcuserdata/

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VideoFlow - The Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#414755",
+                    "primary-container": "#0070eb",
+                    "surface-tint": "#005bc1",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#351000",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-container": "#fefcff",
+                    "surface-container-highest": "#e2e2e4",
+                    "surface-bright": "#f9f9fb",
+                    "on-surface": "#1a1c1d",
+                    "surface-container-low": "#f3f3f5",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e2e2e4",
+                    "on-secondary-container": "#626267",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "background": "#f9f9fb",
+                    "on-background": "#1a1c1d",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "inverse-surface": "#2f3132",
+                    "inverse-on-surface": "#f0f0f2",
+                    "on-primary-fixed": "#001a41",
+                    "inverse-primary": "#adc6ff",
+                    "outline": "#717786",
+                    "on-secondary-fixed-variant": "#46464b",
+                    "tertiary-container": "#c64f00",
+                    "primary": "#0058bc",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary": "#9e3d00",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d9dadc",
+                    "secondary-container": "#e0dfe4",
+                    "secondary": "#5d5e63",
+                    "surface-container": "#eeeef0",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-container-high": "#e8e8ea",
+                    "secondary-fixed": "#e3e2e7",
+                    "primary-fixed": "#d8e2ff",
+                    "on-primary-fixed-variant": "#004493",
+                    "secondary-fixed-dim": "#c6c6cb",
+                    "on-secondary-fixed": "#1a1b1f",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "surface": "#f9f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ease-out-expo-250ms {
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            transition-duration: 250ms;
+        }
+        .scale-98-active:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary/20">
+<!-- SideNavBar (Predicted Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex flex-col p-4 space-y-2 z-50">
+<div class="px-3 py-6 mb-4">
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">VideoFlow</h1>
+<p class="text-xs text-on-surface-variant/60 font-medium uppercase tracking-widest mt-1">The Digital Curator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard (Active State) -->
+<a class="bg-slate-200/50 dark:bg-slate-800/50 text-blue-700 dark:text-blue-400 font-semibold rounded-lg flex items-center px-3 py-2.5 transition-all duration-250 ease-out-expo hover:bg-slate-200/40 group scale-98-active" href="#">
+<span class="material-symbols-outlined mr-3 text-[22px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-sm tracking-tight">Dashboard</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 flex items-center px-3 py-2.5 transition-all duration-250 ease-out-expo rounded-lg group scale-98-active" href="#">
+<span class="material-symbols-outlined mr-3 text-[22px]">video_library</span>
+<span class="text-sm tracking-tight">Library</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 flex items-center px-3 py-2.5 transition-all duration-250 ease-out-expo rounded-lg group scale-98-active" href="#">
+<span class="material-symbols-outlined mr-3 text-[22px]">download</span>
+<span class="text-sm tracking-tight">Downloads</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/30 dark:hover:bg-slate-800/30 flex items-center px-3 py-2.5 transition-all duration-250 ease-out-expo rounded-lg group scale-98-active" href="#">
+<span class="material-symbols-outlined mr-3 text-[22px]">settings</span>
+<span class="text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container/50 rounded-xl">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white text-xs font-bold">JD</div>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold truncate">Jane Doe</p>
+<p class="text-[10px] text-on-surface-variant truncate">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Predicted Component) -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex items-center justify-between px-8 z-40">
+<div class="flex items-center w-full max-w-md bg-surface-container-lowest rounded-lg px-3 py-1.5 shadow-sm ring-1 ring-on-surface/5 focus-within:ring-primary/30 transition-all duration-250">
+<span class="material-symbols-outlined text-on-surface-variant text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant/50" placeholder="Search your library..." type="text"/>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-slate-500 hover:text-blue-500 transition-colors ease-out-expo-250ms flex items-center space-x-1">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<button class="text-slate-500 hover:text-blue-500 transition-colors ease-out-expo-250ms flex items-center space-x-1">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-6xl mx-auto p-12">
+<!-- Hero / Paste Section -->
+<section class="mb-16">
+<div class="mb-10">
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Welcome Back.</h2>
+<p class="text-lg text-on-surface-variant font-medium">Ready to curate your next video collection?</p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary-container/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative flex items-center bg-surface-container-lowest p-2 rounded-2xl shadow-xl shadow-on-surface/5">
+<div class="flex-1 flex items-center px-4">
+<span class="material-symbols-outlined text-primary/60 mr-4">link</span>
+<input class="w-full border-none focus:ring-0 text-lg py-4 placeholder:text-on-surface-variant/30 font-medium" placeholder="Paste video URL from YouTube, Vimeo, or Twitter..." type="text"/>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold tracking-tight shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-250 ease-out-expo scale-98-active flex items-center">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">download</span>
+                            Download
+                        </button>
+</div>
+</div>
+</section>
+<!-- Quick Links / Popular Sites Bento Grid -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-sm font-bold uppercase tracking-[0.2em] text-on-surface-variant">Popular Sources</h3>
+<div class="h-[1px] flex-1 bg-surface-container-high mx-6"></div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">View All Sources</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- YouTube -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low transition-all duration-250 ease-out-expo hover:bg-surface-container-high relative overflow-hidden">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[#FF0000] text-3xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<h4 class="font-bold text-on-surface">YouTube</h4>
+<p class="text-xs text-on-surface-variant mt-1">4K &amp; 8K Support</p>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+<span class="material-symbols-outlined text-9xl">play_arrow</span>
+</div>
+</div>
+<!-- Vimeo -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low transition-all duration-250 ease-out-expo hover:bg-surface-container-high relative overflow-hidden">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[#1AB7EA] text-3xl" style="font-variation-settings: 'FILL' 1;">video_camera_back</span>
+</div>
+<h4 class="font-bold text-on-surface">Vimeo</h4>
+<p class="text-xs text-on-surface-variant mt-1">Creator Hub</p>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+<span class="material-symbols-outlined text-9xl">movie</span>
+</div>
+</div>
+<!-- Twitter / X -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low transition-all duration-250 ease-out-expo hover:bg-surface-container-high relative overflow-hidden">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[#1DA1F2] text-3xl" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</div>
+<h4 class="font-bold text-on-surface">Twitter</h4>
+<p class="text-xs text-on-surface-variant mt-1">Social Clips</p>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+<span class="material-symbols-outlined text-9xl">share</span>
+</div>
+</div>
+<!-- Other -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center transition-all duration-250 ease-out-expo hover:border-primary/40">
+<span class="material-symbols-outlined text-on-surface-variant/40 mb-2">add_circle</span>
+<h4 class="text-sm font-bold text-on-surface-variant">Custom Source</h4>
+</div>
+</div>
+</section>
+<!-- Secondary Layout: Recent Downloads (Asymmetric) -->
+<section class="mt-20">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-sm font-bold uppercase tracking-[0.2em] text-on-surface-variant">Recent Activity</h3>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Large Featured Card -->
+<div class="col-span-8 group relative rounded-3xl overflow-hidden bg-surface-container h-[400px]">
+<img alt="Featured Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="cinematic wide shot of misty mountains at sunrise with golden light filtering through trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfHEFHv8wMXS_k_YJZcgJc-f0YlEXfJOAnOLvWSlAd93gvA-luuPGUZ5j2G6ZNq5alUkDEaVJwgBBjdOau5jI64KzPnF-ZjhyQhBCaqbkh1U66UWmQbgXPezJ0jn98nNrwtWVaCbIHxpzUYB7165p_VuoJLDUqZdu3cy4bujnkJ_Yvgm6yzZonS5pCwDy_JBvhs515NNAQVY3yPHp93hmueUXQslSuFFIZPRpuwc2VAFA_HgnlHOfn3QtU09bhy_59FyboJRp4TtU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
+<div class="flex items-center space-x-2 mb-3">
+<span class="px-2 py-1 rounded bg-primary text-[10px] font-bold text-white uppercase tracking-wider">Completed</span>
+<span class="text-white/60 text-xs font-medium">Downloaded 2h ago</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-2 leading-tight">The Art of Cinematography: Masterclass Vol. 1</h4>
+<div class="flex items-center space-x-4">
+<button class="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center transition-all">
+<span class="material-symbols-outlined text-sm mr-2">folder_open</span> Open in Finder
+                                </button>
+<button class="text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Side Stats / Info -->
+<div class="col-span-4 space-y-6">
+<div class="bg-surface-container-high p-8 rounded-3xl flex flex-col justify-between h-[188px]">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Storage Usage</p>
+<h5 class="text-3xl font-extrabold text-on-surface">12.4 <span class="text-lg font-medium text-on-surface-variant">GB</span></h5>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%] rounded-full"></div>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">8.2 GB remaining of 20 GB</p>
+</div>
+<div class="bg-primary p-8 rounded-3xl h-[188px] flex flex-col justify-between text-on-primary">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-1">Active Tasks</p>
+<h5 class="text-3xl font-extrabold">3 <span class="text-lg font-medium opacity-70 text-on-primary">Downloading</span></h5>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden bg-white/20 backdrop-blur"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden bg-white/20 backdrop-blur"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden bg-white/20 backdrop-blur"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action Feedback (Optional Native Element) -->
+<div class="fixed bottom-8 right-8 flex items-center bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-2xl shadow-2xl space-x-4 max-w-sm z-50">
+<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+<div>
+<p class="text-sm font-bold">Downloading "Wildlife in 4K"...</p>
+<p class="text-xs opacity-70">45% • 12 MB/s • 2 mins left</p>
+</div>
+<button class="hover:bg-white/10 p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</body></html>
